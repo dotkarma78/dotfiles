@@ -18,7 +18,7 @@ setopt EXTENDED_GLOB
 
 alias cc='clear'
 alias ff='fastfetch'
-alias sysupg='paru && flatpak update && { paru -Qdqt | paru -Rns - 2>/dev/null || echo "No orphans to remove"; } && flatpak remove --unused'
+alias sysupg='paru && flatpak update && paru -Rns $(paru -Qdqt); flatpak remove --unused'
 
 PROMPT="%F{cyan}%~%f %(!.%F{red}#.%F{magenta}$)%f "
 
