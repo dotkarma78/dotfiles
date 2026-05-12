@@ -1,3 +1,3 @@
 typeset -U path PATH
-path=($path ~/.local/bin .)
+path=(~/.local/bin $path)
 export PATH
