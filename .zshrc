@@ -20,7 +20,7 @@ setopt EXTENDED_GLOB
 alias cc='clear'
 alias ff='fastfetch'
 
-qsysupg() {
+sysupg() {
 	paru
 	flatpak update
 
