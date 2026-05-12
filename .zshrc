@@ -15,12 +15,9 @@ setopt AUTO_CD
 setopt CORRECT_ALL
 setopt EXTENDED_GLOB
 
-REMOTE_DOTFILES_REPO="ssh://git@github.com/$(whoami)/dotfiles.git"
-LOCAL_DOTFILES_REPO="$HOME/Git Repositories/dotfiles"
 sysupg() {
 	paru
 	flatpak update
-
 	local ORPHANS=$(paru -Qdqt)
 	if [[ $ORPHANS != "" ]]
 	then
@@ -29,8 +26,7 @@ sysupg() {
 		echo "No orphans to remove"
 	fi
 	flatpak remove --unused
-
-	git -C $LOCAL_DOTFILES_REPO pull $REMOTE_DOTFILES_REPO
+	git -C /home/dotkarma78/Git\ Repositories/dotfiles pull git@github.com:dotkarma78/dotfiles.git
 }
 alias cc='clear'
 alias ff='fastfetch'
