@@ -19,14 +19,13 @@ sysupg() {
 	paru
 	flatpak update
 	local ORPHANS=$(paru -Qdqt)
-	if [[ $ORPHANS != "" ]]
-	then
+	if [[ $ORPHANS != "" ]]; then
 		paru -Rns $ORPHANS
 	else
 		echo "No orphans to remove"
 	fi
 	flatpak remove --unused
-	git -C /home/dotkarma78/Git\ Repositories/dotfiles pull git@github.com:dotkarma78/dotfiles.git
+	git -C /home/dotkarma78/Git\ Repositories/dotfiles pull
 }
 alias cc='clear'
 alias ff='fastfetch'
