@@ -2,7 +2,6 @@ HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
 setopt EXTENDED_HISTORY
-setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_FIND_NO_DUPS
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
@@ -15,7 +14,7 @@ setopt CORRECT_ALL
 setopt EXTENDED_GLOB
 
 sysupg() {
-	paru
+  paru
 	flatpak update
 	local ORPHANS=$(paru -Qdqt)
 	if [[ $ORPHANS != "" ]]; then
