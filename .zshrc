@@ -23,7 +23,11 @@ sysupg() {
 		echo "No orphans to remove"
 	fi
 	flatpak remove --unused
-	git -C /home/dotkarma78/Git\ Repositories/dotfiles pull
+  echo "Updating dotfiles"
+	timeout 15s git -C /home/dotkarma78/Git\ Repositories/dotfiles pull
+  if [[ $? == 124 ]]; then
+    echo "Timed out"
+  fi
 }
 alias cc='clear'
 alias ff='fastfetch'
