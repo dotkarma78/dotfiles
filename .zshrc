@@ -24,7 +24,7 @@ sysupg() {
 	fi
 	flatpak remove --unused
   echo "Updating dotfiles"
-	timeout 15s git -C /home/dotkarma78/Git\ Repositories/dotfiles pull
+	timeout 15s git -C "/home/dotkarma78/Git Repositories/dotfiles" pull
   if [[ $? == 124 ]]; then
     echo "Timed out"
   fi
@@ -37,8 +37,8 @@ eval "$(zoxide init zsh)"
 autoload -Uz compinit
 compinit
 
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "/usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
+source "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 PROMPT="%F{cyan}%~%f %(!.%F{red}#.%F{magenta}$)%f "
