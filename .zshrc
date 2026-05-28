@@ -16,12 +16,7 @@ setopt EXTENDED_GLOB
 sysupg() {
   paru
 	flatpak update
-	local ORPHANS=$(paru -Qdqt)
-	if [[ $ORPHANS != "" ]]; then
-		paru -Rns $ORPHANS
-	else
-		echo "No orphans to remove"
-	fi
+	paru -c
 	flatpak remove --unused
   echo "Updating dotfiles"
 	timeout 15s git -C "/home/dotkarma78/Git Repositories/dotfiles" pull
