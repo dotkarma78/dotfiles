@@ -20,7 +20,7 @@ sysupg() {
   paru -c
   flatpak remove --unused
   echo "Updating dotfiles"
-  timeout 15s git -C "/home/dotkarma78/Git Repositories/dotfiles" pull
+  timeout 15s git -C "~/Git Repositories/dotfiles" pull
   if [[ $? == 124 ]]; then
     echo "Timed out"
   fi
