@@ -16,9 +16,7 @@ setopt EXTENDED_GLOB
 sysupg() {
   paru
   paru --needed -S bat eza git zoxide zsh-autocomplete zsh-autosuggestions zsh-syntax-highlighting
-  flatpak update
   paru -c
-  flatpak remove --unused
   local DOTFILES_DIR="/home/dotkarma78/Git Repositories/dotfiles"
   echo "Updating dotfiles"
   timeout 15s git -C "$DOTFILES_DIR" pull
