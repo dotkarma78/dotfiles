@@ -14,8 +14,8 @@ setopt CORRECT_ALL
 setopt EXTENDED_GLOB
 
 sysupg() {
-  paru
-  paru --needed -S bat eza git zoxide zsh-autocomplete zsh-autosuggestions zsh-syntax-highlighting
+  paru || return 1
+  paru --needed -S bat eza git zoxide zsh-autocomplete zsh-autosuggestions zsh-completions zsh-syntax-highlighting
   paru -c
   local DOTFILES_DIR="/home/quackise/Git Repositories/dotfiles"
   echo "Updating dotfiles"
@@ -27,13 +27,11 @@ sysupg() {
 alias cc='clear'
 alias ff='fastfetch'
 
-eval "$(zoxide init zsh)"
-
-autoload -Uz compinit
-compinit
-
+fpath=(/usr/share/zsh/plugins/zsh-completions/src $fpath)
 source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+eval "$(zoxide init zsh)"
 
 PROMPT="%F{cyan}%~ %(!.%F{red}#.%F{magenta}$)%f "
