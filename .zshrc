@@ -17,7 +17,7 @@ sysupg() {
   paru
   paru --needed -S bat eza git zoxide zsh-autocomplete zsh-autosuggestions zsh-syntax-highlighting
   paru -c
-  local DOTFILES_DIR="/home/dotkarma78/Git Repositories/dotfiles"
+  local DOTFILES_DIR="/home/quackise/Git Repositories/dotfiles"
   echo "Updating dotfiles"
   timeout 15s git -C "$DOTFILES_DIR" pull
   if [[ $? == 124 ]]; then
@@ -32,8 +32,8 @@ eval "$(zoxide init zsh)"
 autoload -Uz compinit
 compinit
 
-#source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-PROMPT="%F{cyan}%~%f %(!.%F{red}#.%F{magenta}$)%f "
+PROMPT="%F{cyan}%~ %(!.%F{red}#.%F{magenta}$)%f "
